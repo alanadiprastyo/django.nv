@@ -26,6 +26,7 @@ jobs:
       - store_artifacts:
           path: oast-results.json
           destination: safety-artifact
+          when: always
           
   integration:
     docker:
