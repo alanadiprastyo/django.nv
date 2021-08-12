@@ -53,6 +53,9 @@ workflows:
       - test:
           requires:
             - build 
+      - oast-frontend:
+          requires:
+            - test
       - integration:
           requires:
             - test
