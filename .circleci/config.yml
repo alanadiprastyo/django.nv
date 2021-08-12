@@ -27,6 +27,7 @@ jobs:
       - store_artifacts:
           path: retirejs-output.json
           destination: retirejs-artifact
+          when: always
           
   integration:
     docker:
@@ -58,7 +59,7 @@ workflows:
             - test
       - integration:
           requires:
-            - test
+            - oast-frontend
       - prod:
           type: approval
           requires:
