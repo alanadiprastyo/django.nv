@@ -27,6 +27,7 @@ jobs:
       - store_artifacts:
           path: trufflehog-output.json
           destination: trufflehog-artifact
+          when: always              # Even if the job fails, continue to the next stages
 
   integration:
     docker:
@@ -37,6 +38,7 @@ jobs:
           command: |
             echo "This is an integration step"
             exit 1
+          when: always                    # Even if the job fails, continue to the next stages
 
   prod:
     docker:
