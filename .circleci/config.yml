@@ -52,10 +52,13 @@ workflows:
       - build
       - test:
           requires:
-            - build 
-      - integration:
+            - build
+      - sast:
           requires:
             - test
+      - integration:
+          requires:
+            - sast
       - prod:
           type: approval
           requires:
