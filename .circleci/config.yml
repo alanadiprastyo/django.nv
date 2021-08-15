@@ -16,7 +16,19 @@ jobs:
       - run: |
           pip install -r requirements.txt
           python manage.py test taskManager
-          
+
+  oast-frontend:
+    machine: true
+    steps:
+      - checkout
+
+      - run: docker run --rm -v $(pwd):/src -w /src hysnsec/retire --outputformat json --outputpath retirejs-output.json --severity high
+
+      - store_artifacts:
+          path: retirejs-output.json
+          destination: retirejs-artifact
+          when: always              # Even if the job fails, continue to the next stages
+
   sast:
     machine: true
     steps:
@@ -27,6 +39,7 @@ jobs:
       - store_artifacts:
           path: bandit-output.json
           destination: bandit-artifact
+          when: always              # Even if the job fails, continue to the next stages
 
   integration:
     docker:
@@ -37,6 +50,7 @@ jobs:
           command: |
             echo "This is an integration step"
             exit 1
+          when: always                    # Even if the job fails, continue to the next stages
 
   prod:
     docker:
@@ -53,9 +67,12 @@ workflows:
       - test:
           requires:
             - build
-      - sast:
+      - oast-frontend:
           requires:
             - test
+      - sast:
+          requires:
+            - oast-frontend
       - integration:
           requires:
             - sast
