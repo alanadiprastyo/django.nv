@@ -22,7 +22,8 @@ jobs:
     steps:
       - checkout
 
-      - run: docker run --rm -v $(pwd):/src -w /src hysnsec/retire --outputformat json --outputpath retirejs-output.json --severity high
+      - run: 
+          command: docker run --rm -v $(pwd):/src -w /src hysnsec/retire --outputformat json --outputpath retirejs-output.json --severity high
           when: always
 
       - store_artifacts:
