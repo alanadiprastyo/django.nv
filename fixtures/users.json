@@ -82,6 +82,20 @@
       "is_staff" : true,
       "is_active" : true
     }
+  },
+ 
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "first_name" : "admin",
+      "last_name" : "biasa",
+      "username" : "adminbiasa",
+      "password": "password123!@#",
+      "is_superuser" : true,
+      "email" : "admin@tm.com",
+      "is_staff" : true,
+      "is_active" : true
+    }
   }
-  
 ]
