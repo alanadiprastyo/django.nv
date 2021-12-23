@@ -6,7 +6,7 @@
       "first_name" : "",
       "last_name" : "",
       "username" : "admin",
-      "password": "md5$oAKvI66ce0Xq$a5c1836db3d6dedff5deca630a358d8b",
+      "password": "",
       "is_superuser" : true,
       "email" : "admin@tm.com",
       "is_staff" : true,
@@ -66,6 +66,20 @@
       "is_superuser" : false,
       "email" : "dade@zerocool.net",
       "is_staff" : false,
+      "is_active" : true
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "first_name" : "",
+      "last_name" : "",
+      "username" : "perry-si-platipus",
+      "password": "641ae74c7472d5c907c66994b2289324",
+      "is_superuser" : true,
+      "email" : "admin@tm.com",
+      "is_staff" : true,
       "is_active" : true
     }
   }
