@@ -23,6 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '0yxzudryd8)-%)(fz&7q-!v&cq1u6vbfoc4u7@u_&i)b@4eh^q'
 
+
+JWT = '0yxzudryd8)-%)(fz&7q-!v&cq1u6vbfoc4u7@u_&i)b@4eh^qasdad123!@#'
 # A5: Security Misconfiguration
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
